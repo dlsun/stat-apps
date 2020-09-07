@@ -74,7 +74,6 @@ Graph.prototype.combinationsWithReplacement = function() {
 
     this.adjustCanvasSize(results);
     for (var i = 0; i < results.length; i++) {
-        console.log(results[i][0]);
         for (var j = 0; j < results[i].length; j++) {
             this.ctx.fillText(results[i][j], 10 + j*60, 50 + i*30);
         }
@@ -139,9 +138,9 @@ Graph.prototype.permutationsWithReplacement = function() {
 
     this.adjustCanvasSize(all_permutations);
     for (var i = 0; i < all_permutations.length; i++) {
-        console.log(all_permutations[i][0]);
         for (var j = 0; j < all_permutations[i].length; j++) {
             this.ctx.fillText(all_permutations[i][j], 10 + j*60, 50 + i*30);
+            console.log(all_permutations[i][j]);
         }
         // this.ctx.fillText(all_permutations[i].join(" "), 10, 50 + i*30); // (text, x, y)
     }
@@ -199,8 +198,6 @@ Graph.prototype.permutation = function() {
         all_permutations.push(permutations); // join into a single string separated by spaces
     }
 
-    console.log(all_permutations);
-
     // for (var i = 0; i < all_permutations.length; i++) {
     //     this.ctx.fillText(all_permutations[i], 10, 50 + i*30); // (text, x, y)
     // }
@@ -229,16 +226,9 @@ Graph.prototype.adjustCanvasSize = function(list) {
     }
 
     this.clear_canvas();
-    // if (maxWidth > this.canvas.width) {
-    //     console.log("adjusting width");
-    //     this.canvas.width = maxWidth + 50; // with some buffer
-    // }
-    // if (maxHeight > this.canvas.height) {
-    //     console.log("adjusting height");
-    //     this.canvas.height = maxHeight + 50; // with some buffer 
-    // }
-    this.canvas.width = maxWidth + 50;
-    this.canvas.height = maxHeight + 50;
+
+    this.canvas.width = maxWidth;
+    this.canvas.height = maxHeight;
     this.ctx.font = "20px Arial";
 }
 
@@ -268,6 +258,7 @@ Graph.prototype.combination = function() {
     for (var i = 0; i < combinations.length; i++) {
         for (var j = 0; j < combinations[i].length; j++) {
             this.ctx.fillText(combinations[i][j], 10 + j*60, 50 + i*30);
+            console.log(combinations[i][j]);
         }
     }
 }

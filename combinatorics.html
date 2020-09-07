@@ -73,44 +73,66 @@
   </head>
 
   <body>
-    <table>
+	<div style="width: 800px; height: 500px; overflow: scroll; border:5px solid black;">
+		<canvas id="graph" width="750" height="470"></canvas> 
+	</div> 
+    <table style="margin-top:-500px; margin-left:850px; margin-right: 200px;">
       	<tr>
 			<td style="text-align:center;">
 				<input type="range" min="1" max="6" value="4">
 			</td>
+			<td>
+			</td>
 			<td style="text-align:center;">
 				<input type="range" min="0" max="4" value="2">
-			</td>
-			<td style="text-align:center;">
-				without replacement
-				<label class="switch">
-					<input type="checkbox">
-					<span class="slider round"></span>
-				</label>
-				with replacement
-			</td>
-			<td style="text-align:center;">
-				order does not matter
-				<label class="switch">
-					<input type="checkbox">
-					<span class="slider round"></span>
-				</label>
-				order matters
 			</td>
 		</tr>
 		<tr>
 			<td style="text-align:center;">
 				\(N = \) <span id="bigN">2</span> 
 			</td>
+			<td>
+			</td>
 			<td style="text-align:center;">
 				\(n = \) <span id="n">3</span> 
 			</td>
-      	</tr>
+		</tr>
+		<tr>
+		    <td> <br> </td> <!--The br tag did what i was looking for -->
+		</tr>
+		<tr>
+		    <td> <br> </td> <!--The br tag did what i was looking for -->
+		</tr>
+		</tr>
+		<tr style="padding-top: 10em;">
+			<td>
+				without replacement
+			</td>
+			<td style="text-align:center;">
+				<label class="switch">
+					<input type="checkbox">
+					<span class="slider round"></span>
+				</label>
+			</td>
+			<td>
+				with replacement
+			</td>
+		</tr>
+		<tr>
+			<td>
+				order does not matter
+			</td>
+			<td style="text-align:center;">
+				<label class="switch">
+					<input type="checkbox">
+					<span class="slider round"></span>
+				</label>
+			</td>
+			<td>
+				order matters
+			</td>
+		</tr>
 	</table>
-	<div style="width: 800px; height: 500px; overflow: scroll;">
-		<canvas id="graph" width="750" height="450"></canvas> 
-		<!-- 3000, 1500 -->
-	</div> 
   </body>
 </html>
 
