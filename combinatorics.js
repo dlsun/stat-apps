@@ -70,7 +70,7 @@ Graph.prototype.combinationsWithReplacement = function() {
         results = [];                // Array of results
     (function f(pos, start) {        // Recursive function
         if(pos === l) {                // End reached
-        results.push(data.slice().join(""));  // Add a copy of data to results
+        results.push([data.slice().join("")]);  // Add a copy of data to results
         return;
         }
         for(var i=start; i<arr.length; ++i) {
@@ -326,7 +326,7 @@ Graph.prototype.clear_canvas = function() {
 // initialize graph when page loads
 document.addEventListener("DOMContentLoaded", function(event) {
     var graph = new Graph(
-	document.querySelector("#graph"),
+    document.querySelector("#graph"),
     document.querySelectorAll("input[type='range']"),
     document.querySelectorAll("input[type='checkbox']")
     );
