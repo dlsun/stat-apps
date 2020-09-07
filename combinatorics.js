@@ -39,13 +39,6 @@ function Graph(canvas, sliders, toggles) {
 
 Graph.prototype.enumerate_outcomes = function() {
     this.clear_canvas();
-    // reset canvas dimensions
-    this.canvas.width = 750;
-    this.canvas.height = 450;
-
-    this.ctx.font = "20px Arial";
-    var string = "replacement: " + this.replacement + " order: " + this.order;
-    // this.ctx.fillText(string, 10, 50); // (text, x, y)
 
     if (!this.replacement && !this.order) {
         this.combination();
@@ -78,10 +71,6 @@ Graph.prototype.combinationsWithReplacement = function() {
         f(pos+1, i);                 // Call f recursively
         }
     })(0, 0);                        // Start at index 0
-
-    // for (let i = 0; i < results.length; i++) { // print 10 numbers per line
-    //     this.ctx.fillText(results[i], 10, 50 + i*30); // (text, x, y)
-    // }
 
     this.adjustCanvasSize(results);
     for (var i = 0; i < results.length; i++) {
@@ -240,14 +229,17 @@ Graph.prototype.adjustCanvasSize = function(list) {
     }
 
     this.clear_canvas();
-    if (maxWidth > this.canvas.width) {
-        console.log("adjusting width");
-        this.canvas.width = maxWidth + 50; // with some buffer
-    }
-    if (maxHeight > this.canvas.height) {
-        console.log("adjusting height");
-        this.canvas.height = maxHeight + 50; // with some buffer 
-    }
+    // if (maxWidth > this.canvas.width) {
+    //     console.log("adjusting width");
+    //     this.canvas.width = maxWidth + 50; // with some buffer
+    // }
+    // if (maxHeight > this.canvas.height) {
+    //     console.log("adjusting height");
+    //     this.canvas.height = maxHeight + 50; // with some buffer 
+    // }
+    this.canvas.width = maxWidth + 50;
+    this.canvas.height = maxHeight + 50;
+    this.ctx.font = "20px Arial";
 }
 
 Graph.prototype.combination = function() {
