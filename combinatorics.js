@@ -140,7 +140,6 @@ Graph.prototype.permutationsWithReplacement = function() {
     for (var i = 0; i < all_permutations.length; i++) {
         for (var j = 0; j < all_permutations[i].length; j++) {
             this.ctx.fillText(all_permutations[i][j], 10 + j*60, 50 + i*30);
-            console.log(all_permutations[i][j]);
         }
         // this.ctx.fillText(all_permutations[i].join(" "), 10, 50 + i*30); // (text, x, y)
     }
@@ -258,7 +257,6 @@ Graph.prototype.combination = function() {
     for (var i = 0; i < combinations.length; i++) {
         for (var j = 0; j < combinations[i].length; j++) {
             this.ctx.fillText(combinations[i][j], 10 + j*60, 50 + i*30);
-            console.log(combinations[i][j]);
         }
     }
 }
