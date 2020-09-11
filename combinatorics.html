@@ -3,136 +3,116 @@
 <html>
   <head>
     <title>Combinatorics Applet</title>
-    <script type="text/javascript" async
+    <link rel="stylesheet"
+	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	  crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" 
 	    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     
-	<script src="combinatorics.js"></script>
+    <script type="text/javascript" src="combinatorics.js"></script>
 
-	<style>
-		.switch {
-		  position: relative;
-		  display: inline-block;
-		  width: 60px;
-		  height: 34px;
-		}
-		
-		.switch input { 
-		  opacity: 0;
-		  width: 0;
-		  height: 0;
-		}
-		
-		.slider {
-		  position: absolute;
-		  cursor: pointer;
-		  top: 0;
-		  left: 0;
-		  right: 0;
-		  bottom: 0;
-		  background-color: #ccc;
-		  -webkit-transition: .4s;
-		  transition: .4s;
-		}
-		
-		.slider:before {
-		  position: absolute;
-		  content: "";
-		  height: 26px;
-		  width: 26px;
-		  left: 4px;
-		  bottom: 4px;
-		  background-color: white;
-		  -webkit-transition: .4s;
-		  transition: .4s;
-		}
-		
-		input:checked + .slider {
-		  background-color: #2196F3;
-		}
-		
-		input:focus + .slider {
-		  box-shadow: 0 0 1px #2196F3;
-		}
-		
-		input:checked + .slider:before {
-		  -webkit-transform: translateX(26px);
-		  -ms-transform: translateX(26px);
-		  transform: translateX(26px);
-		}
-		
-		/* Rounded sliders */
-		.slider.round {
-		  border-radius: 34px;
-		}
-		
-		.slider.round:before {
-		  border-radius: 50%;
-		}
-		</style>
   </head>
 
   <body>
-	<div style="width: 800px; height: 500px; overflow: scroll; border:5px solid black;">
-		<canvas id="graph" width="750" height="470"></canvas> 
-	</div> 
-    <table style="margin-top:-500px; margin-left:850px; margin-right: 200px;">
-      	<tr>
-			<td style="text-align:center;">
-				<input type="range" min="1" max="6" value="4">
-			</td>
-			<td>
-			</td>
-			<td style="text-align:center;">
-				<input type="range" min="0" max="4" value="2">
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align:center;">
-				\(N = \) <span id="bigN">2</span> 
-			</td>
-			<td>
-			</td>
-			<td style="text-align:center;">
-				\(n = \) <span id="n">3</span> 
-			</td>
-		</tr>
-		<tr>
-		    <td> <br> </td> <!--The br tag did what i was looking for -->
-		</tr>
-		<tr>
-		    <td> <br> </td> <!--The br tag did what i was looking for -->
-		</tr>
-		</tr>
-		<tr style="padding-top: 10em;">
-			<td>
-				without replacement
-			</td>
-			<td style="text-align:center;">
-				<label class="switch">
-					<input type="checkbox">
-					<span class="slider round"></span>
-				</label>
-			</td>
-			<td>
-				with replacement
-			</td>
-		</tr>
-		<tr>
-			<td>
-				order does not matter
-			</td>
-			<td style="text-align:center;">
-				<label class="switch">
-					<input type="checkbox">
-					<span class="slider round"></span>
-				</label>
-			</td>
-			<td>
-				order matters
-			</td>
-		</tr>
+    <div class="container">
+
+      <div class="row">
+	<h1 class="col-12 text-center">Counting Applet</h1>
+      </div>
+      
+    <div class="row">
+      <div class="col-5">
+	<table>
+	  <tr>
+	    <td class="text-center">
+	      Number of Tickets
+	    </td>
+	    <td></td>
+	    <td class="text-center">
+	      Number of Draws
+	    </td>
+	  </tr>
+      	  <tr>
+	    <td class="text-center">
+	      <input type="range" min="1" max="6" value="4">
+	    </td>
+	    <td>
+	    </td>
+	    <td class="text-center">
+	      <input type="range" min="1" max="4" value="3">
+	    </td>
+	  </tr>
+	  <tr>
+	    <td class="text-center">
+	      \(N = \) <span id="bigN">4</span> 
+	    </td>
+	    <td>
+	    </td>
+	    <td class="text-center">
+	      \(n = \) <span id="n">3</span> 
+	    </td>
+	  </tr>
+	  <tr>
+	    <td class="text-center">
+	      <div id="box">
+		$$ \fbox{$\fbox{1}\ \fbox{2}\ \fbox{3}\ \fbox{4}$} $$
+	      </div>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td> <br> </td> <!--The br tag did what i was looking for -->
+	  </tr>
+	  <tr style="padding-top: 10em;">
+	    <td style="text-align:right;">
+	      without replacement &nbsp;
+	    </td>
+	    <td class="text-center">
+	      <div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="replacementSwitch">
+		<label class="custom-control-label"
+		for="replacementSwitch"></label>
+	      </div>
+	    </td>
+	    <td>
+	      with replacement
+	    </td>
+	  </tr>
+	  <tr>
+	    <td style="text-align:right;">
+	      order does not matter &nbsp;
+	    </td>
+	    <td class="text-center">
+	      <div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input"
+		       id="orderSwitch" checked>
+		<label class="custom-control-label"
+		for="orderSwitch"></label>
+	      </div>
+	    </td>
+	    <td>
+	      order matters
+	    </td>
+	  </tr>
 	</table>
+      </div>
+      <div class="col-7" style="width: 600px; height: 400px; overflow: scroll; border:5px solid black;">
+	<canvas id="graph" width="550" height="370"></canvas> 
+      </div>
+    </div>
+
+      <div class="row">
+	<div class="col-12 text-right small">&copy;2020 Dennis Sun, Lemar
+	  Popal, Harry Yan
+	</div>
+      </div>
+    
+    </div>
   </body>
 </html>
 

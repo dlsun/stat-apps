@@ -229,7 +229,7 @@ Graph.prototype.adjustCanvasSize = function(list) {
 
     this.canvas.width = maxWidth;
     this.canvas.height = maxHeight;
-    this.ctx.font = "20px Arial";
+    this.ctx.font = "20px Times";
 }
 
 Graph.prototype.combination = function() {
@@ -269,6 +269,18 @@ Graph.prototype.update_N = function(N) {
     this.enumerate_outcomes();
     
     document.querySelector("#bigN").innerHTML = this.N;
+
+    var box = "$$ \\fbox{$\\fbox{1}";
+    var i = 1;
+    while(i < N) {
+	i += 1;
+	box += "\\ \\fbox{" + i + "}";
+    }
+    box += "$} $$"
+
+    var div = document.querySelector("#box");
+    div.innerHTML = box;
+    MathJax.Hub.Typeset(div);
 }
 
 // event handler when p changes
